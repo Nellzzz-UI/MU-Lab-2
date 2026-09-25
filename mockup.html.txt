@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OmniStash - Log New Item</title>
+  <link rel="stylesheet" href="static/brand.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="mockup.html">Back to Collection</a>
+    </nav>
+    <h1>OmniStash: Add Entry</h1>
+  </header>
+
+  <main>
+    <h2>Log Play Session or Artifact</h2>
+    <form action="#" method="post">
+      <div>
+        <label for="item-title">Item or Game Title:</label>
+        <input id="item-title" name="item_title" type="text" placeholder="e.g. Starry Night / Elden Ring">
+      </div>
+
+      <div>
+        <label for="hours-logged">Hours Spent:</label>
+        <input id="hours-logged" name="hours_logged" type="number" step="0.5">
+      </div>
+
+      <div>
+        <label for="item-status">Completion Status:</label>
+        <select id="item-status" name="status">
+          <option value="in_progress">In Progress</option>
+          <option value="completed">100% Completed / Collected</option>
+        </select>
+      </div>
+
+      <button type="submit">Save Session Log</button>
+    </form>
+  </main>
+</body>
+</html>
