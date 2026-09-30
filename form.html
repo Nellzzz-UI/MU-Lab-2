@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artifact Collector - Add Item</title>
+  <link rel="stylesheet" href="static/brand.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="brand">
+      <i class="fa-solid fa-gem logo-icon"></i>
+      <div>
+        <h1 class="brand-title">ARTIFACT COLLECTOR</h1>
+        <p class="brand-sub">Track & Complete Your Library</p>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="mockup.html" class="nav-btn"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="form.html" class="nav-btn active"><i class="fa-solid fa-plus"></i> Add Item</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+    
+    <section class="collection-card">
+      <h2 style="margin-top: 0;"><i class="fa-solid fa-folder-plus text-blue"></i> Add New Artifact</h2>
+      <p style="color: var(--text-muted); margin-bottom: 2rem;">Fill out the fields below to add an item to your collection tracking list.</p>
+
+      <form action="mockup.html" method="get" class="form-grid">
+        
+        <div class="form-group">
+          <label for="item-title">Artifact Name</label>
+          <input id="item-title" name="item_title" type="text" placeholder="e.g., Charizard 1st Edition" required class="form-input">
+          <small class="help-text">Enter the full official name of the item.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="item-category">Category</label>
+          <select id="item-category" name="item_category" class="form-input">
+            <option value="lego">LEGO Sets</option>
+            <option value="cards">Trading Cards</option>
+            <option value="vinyl">Vinyl Records</option>
+            <option value="books">Books</option>
+          </select>
+          <small class="help-text">Select the category this set belongs to.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="item-condition">Condition</label>
+          <input id="item-condition" name="item_condition" type="text" placeholder="e.g., Mint, Sealed, Used" class="form-input">
+          <small class="help-text">Describe physical status or grading level.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="item-status">Ownership Status</label>
+          <select id="item-status" name="item_status" class="form-input">
+            <option value="owned">Owned</option>
+            <option value="wishlist">Wishlist</option>
+          </select>
+          <small class="help-text">Indicate whether you currently own this artifact.</small>
+        </div>
+
+        <div style="margin-top: 1rem;">
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Artifact</button>
+          <a href="mockup.html" class="btn btn-secondary" style="text-decoration: none; display: inline-block; margin-left: 0.5rem;">Cancel</a>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+
+</body>
+</html>

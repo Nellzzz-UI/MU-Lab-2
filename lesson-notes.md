@@ -1,15 +1,15 @@
-# M02 · HTML Page Structure - Artifact Collector Project
+# Lesson 02 - HTML Page Structure Notes
 
-## 1. Data Mapping (Displayed Fields to Database Columns)
-- **Title (e.g., "Starry Night Set")** -> Maps to `artifacts.title` column.
-- **Category / Platform (e.g., "LEGO Art", "PlayStation 5")** -> Maps to `categories.name` column.
-- **Status (e.g., "COLLECTED ✓")** -> Maps to `user_collections.status` column.
-- **Hours Logged (e.g., "82.0 hrs")** -> Maps to `play_sessions.logged_hours` column.
+## Database Column Mapping
+- **Artifact Name** (`item_title`) -> Maps to `artifacts.title` (VARCHAR)
+- **Category** (`item_category`) -> Maps to `categories.name` or `artifacts.category_id` (INT / FOREIGN KEY)
+- **Condition** -> Maps to `artifacts.condition` (VARCHAR)
+- **Status** (`item_status`) -> Maps to `artifacts.status` (VARCHAR / ENUM)
 
-## 2. Jinja Execution Note
-Jinja will run on the server side (via Flask) before the page is rendered, dynamically populating database query results into the HTML template before sending final plain HTML to the user's browser.
+## Jinja Execution Note
+Jinja will run on the server side inside Flask before rendering and sending the finalized HTML page to the browser.
 
-## 3. Progress Note
-- **What works:** Built static mockup.html and form.html matching the Artifact Collector presentation layout, complete with tables, form controls, and accessible labels.
-- **What is blocked:** Awaiting Flask/SQL backend integration to replace static sample data with live database queries.
-- **Next action:** Apply styling in Lesson 03 CSS.
+## Progress Note
+- **What works:** `mockup.html` and `form.html` are linked together. Labels properly trigger inputs, and table headers use proper scoping.
+- **What is blocked:** None.
+- **Next action:** Style the pages using custom CSS for Lesson 03.
