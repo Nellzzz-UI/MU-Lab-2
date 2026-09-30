@@ -1,30 +1,77 @@
-/* Base Styles & Theme Colors */
+/* =========================================
+   COLLECTION COMPLETIONIST
+   Lab 3 - CSS and Responsive Design
+   ========================================= */
+
+/* Brand colors */
 :root {
   --bg-dark: #171a21;
   --bg-card: #1b2838;
   --bg-header: #101216;
-  --accent-blue: #06b6d4;
+
+  --brand: #06b6d4;
+  --accent: #10b981;
+
   --text-main: #f3f4f6;
   --text-muted: #9ca3af;
+
   --border-color: #374151;
+  --progress-bg: #111827;
+
+  --blue: #60a5fa;
+  --emerald: #34d399;
+  --yellow: #fbbf24;
+  --purple: #c084fc;
+  --red: #f87171;
+}
+
+
+/* =========================================
+   BASIC PAGE SETUP
+   ========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-main);
+  line-height: 1.5;
 }
 
-/* Header & Navigation */
+
+/* =========================================
+   KEYBOARD ACCESSIBILITY
+   ========================================= */
+
+:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+}
+
+
+/* =========================================
+   HEADER / NAVIGATION
+   ========================================= */
+
 .navbar {
   background-color: var(--bg-header);
   border-bottom: 1px solid var(--border-color);
   padding: 1rem 2rem;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  gap: 1.5rem;
 }
 
 .brand {
@@ -35,7 +82,7 @@ body {
 
 .logo-icon {
   font-size: 1.5rem;
-  color: var(--accent-blue);
+  color: var(--brand);
 }
 
 .brand-title {
@@ -48,53 +95,82 @@ body {
 .brand-sub {
   margin: 0;
   font-size: 0.65rem;
-  color: var(--accent-blue);
+  color: var(--brand);
   text-transform: uppercase;
 }
+
+
+/* Navigation links */
 
 .nav-links {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .nav-btn {
   color: var(--text-muted);
   text-decoration: none;
+
   padding: 0.5rem 1rem;
   border-radius: 8px;
+
   font-size: 0.9rem;
   font-weight: 600;
-  transition: all 0.2s;
+
+  transition: background-color 0.2s, color 0.2s;
 }
 
-.nav-btn:hover, .nav-btn.active {
-  background-color: var(--accent-blue);
+.nav-btn:hover,
+.nav-btn.active {
+  background-color: var(--brand);
   color: #ffffff;
 }
 
-/* Layout Container */
+
+/* =========================================
+   MAIN PAGE CONTAINER
+   ========================================= */
+
 .container {
+  width: 100%;
   max-width: 1100px;
+
   margin: 2rem auto;
   padding: 0 1rem;
+
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-/* Hero Section */
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
 .hero-banner {
-  background: linear-gradient(135deg, #1e3a8a 0%, #1b2838 100%);
+  background: linear-gradient(
+    135deg,
+    #1e3a8a 0%,
+    var(--bg-card) 100%
+  );
+
   border: 1px solid var(--border-color);
   border-radius: 16px;
+
   padding: 2.5rem;
 }
 
 .badge {
+  display: inline-block;
+
   background: rgba(6, 182, 212, 0.2);
-  color: var(--accent-blue);
+  color: var(--brand);
+
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
+
   font-size: 0.75rem;
   font-weight: 700;
 }
@@ -109,58 +185,121 @@ body {
   margin-bottom: 1.5rem;
 }
 
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
 .hero-buttons {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .btn {
   padding: 0.6rem 1.2rem;
+
   border-radius: 8px;
   border: none;
+
   font-weight: 700;
   cursor: pointer;
+
+  font-size: 0.95rem;
 }
 
 .btn-primary {
-  background-color: var(--accent-blue);
-  color: white;
+  background-color: var(--brand);
+  color: #ffffff;
 }
 
 .btn-secondary {
   background-color: var(--bg-header);
   color: var(--text-main);
+
   border: 1px solid var(--border-color);
 }
 
-/* Stats Section */
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+
+/* =========================================
+   STATS SECTION
+   ========================================= */
+
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(200px, 1fr));
+
   gap: 1rem;
 }
 
 .stat-card {
   background-color: var(--bg-card);
+
   border: 1px solid var(--border-color);
   border-radius: 12px;
+
   padding: 1rem;
+
   display: flex;
   align-items: center;
+
   gap: 1rem;
 }
 
-.stat-icon { font-size: 1.8rem; }
-.stat-value { font-size: 1.5rem; font-weight: 800; }
-.stat-label { font-size: 0.75rem; color: var(--text-muted); }
+.stat-icon {
+  font-size: 1.8rem;
+}
 
-.text-blue { color: #60a5fa; }
-.text-emerald { color: #34d399; }
-.text-yellow { color: #fbbf24; }
-.text-purple { color: #c084fc; }
-.text-red { color: #f87171; }
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
 
-/* Collections Grid */
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+
+/* =========================================
+   ICON COLORS
+   ========================================= */
+
+.text-blue {
+  color: var(--blue);
+}
+
+.text-emerald {
+  color: var(--emerald);
+}
+
+.text-yellow {
+  color: var(--yellow);
+}
+
+.text-purple {
+  color: var(--purple);
+}
+
+.text-red {
+  color: var(--red);
+}
+
+
+/* =========================================
+   COLLECTIONS
+   ========================================= */
+
+.collections-section {
+  width: 100%;
+}
+
 .section-title {
   font-size: 1.2rem;
   margin-bottom: 1rem;
@@ -168,36 +307,202 @@ body {
 
 .collection-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+
   gap: 1.5rem;
 }
 
 .collection-card {
   background-color: var(--bg-card);
+
   border: 1px solid var(--border-color);
   border-radius: 12px;
+
   padding: 1.25rem;
 }
 
 .card-header {
   display: flex;
   align-items: center;
+
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
-.card-header h4 { margin: 0; font-size: 1rem; }
-.card-header p { margin: 0; font-size: 0.8rem; color: var(--text-muted); }
-.card-icon { font-size: 1.5rem; }
+.card-header h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.card-header p {
+  margin: 0;
+
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.card-icon {
+  font-size: 1.5rem;
+}
+
+
+/* =========================================
+   PROGRESS BARS
+   ========================================= */
 
 .progress-bar-bg {
-  background-color: #111827;
+  background-color: var(--progress-bg);
+
   height: 8px;
   border-radius: 4px;
+
   overflow: hidden;
 }
 
 .progress-bar-fill {
-  background: linear-gradient(90deg, #06b6d4, #10b981);
+  background: linear-gradient(
+    90deg,
+    var(--brand),
+    var(--accent)
+  );
+
   height: 100%;
+}
+
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.4rem;
+
+  font-weight: 700;
+}
+
+.form-input {
+  width: 100%;
+
+  padding: 0.7rem;
+
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+
+  background-color: var(--bg-header);
+  color: var(--text-main);
+
+  font: inherit;
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.help-text {
+  margin-top: 0.35rem;
+
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 700px) {
+
+  .navbar {
+    padding: 1rem;
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .container {
+    margin: 1rem auto;
+    padding: 0 0.75rem;
+  }
+
+  .hero-banner {
+    padding: 1.5rem;
+  }
+
+  .hero-banner h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================
+   EXTRA SMALL SCREENS
+   ========================================= */
+
+@media (max-width: 450px) {
+
+  .brand-title {
+    font-size: 0.95rem;
+  }
+
+  .brand-sub {
+    font-size: 0.6rem;
+  }
+
+  .hero-banner h2 {
+    font-size: 1.35rem;
+  }
+
+  .hero-banner p {
+    font-size: 0.9rem;
+  }
+
+  .collection-card {
+    padding: 1rem;
+  }
 }
